@@ -1,12 +1,15 @@
 import React from 'react'
-import {StyleSheet, View} from 'react-native'
+import {StyleSheet, View, Platform} from 'react-native'
+
+import HelloWorld from './HelloWorld'
+
+
 
 class Test extends React.Component {
 render() {
     return (
       <View style={styles.main_container}>
-        <View style={styles.subview_container}>
-        </View>
+        <HelloWorld/>
       </View>
     )
   }
@@ -19,8 +22,13 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   },
   subview_container: {
-
+      backgroundColor: Platform.OS === 'ios' ? 'red' : 'blue',
+      height: Platform.OS === 'ios' ? 100 : 50,
+      width: Platform.OS === 'ios' ? 50 : 100
   }
 })
+
+
+
 
 export default Test
